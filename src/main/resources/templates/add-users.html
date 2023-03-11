@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Usuário</title>
+    <style th:replace="~{base}"></style>
+</head>
+<body>
+  <h1>Adicionar Usuário</h1>
+  <section class="forms">
+    <form th:action="@{users}" method="post" style="margin: auto">
+      <label>Nome</label>
+      <input type="text" name="name"/>
+      <br/>
+
+      <label>Email</label>
+      <input type="email" name="email"/>
+      <br/>
+
+      <label>Senha</label>
+      <input type="password" name="senha"/>
+      <br/>
+
+      <button type="submit">Cadastrar</button><button type="button"><a href="users">Voltar</a></button>
+    </form>
+  </section>
+
+</body>
+</html>

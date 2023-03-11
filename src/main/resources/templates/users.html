@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+  <h1 style="text-align: center">Lista de Usuários</h1>
+
+  <form method="post" th:action="@{./search}">
+    Pesquisar
+    <input type="text" name="name">
+    <button type="submit">Pesquisar</button>
+
+  </form>
+  <br/>
+  <table style="display:flex;font-size:1.2em;margin:auto;width:90%;align-self:center;border:black;border:solid;border-color:black;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;border-radius: 5px;text-align: center">
+    <tr><th>Id</th><th>Nome</th><th>Email</th><th>Ações</th></tr>
+    <tr th:each="user : ${users}">
+      <td th:text="${user.id}"> </td>
+      <td th:text="${user.name}"></td>
+      <td th:text="${user.email}"></td>
+      <td>
+        <form th:action="@{./users/delete/{id}(id=${user.id})}" method="post">
+          <button type="submit" style="border-radius: 3px;background-color: black;color: aliceblue">Excluir</button>
+        </form>
+      </td>
+    </tr>
+
+  </table>
+  <div id="button" style="width: 100%;justify-items: center;display: flex;justify-content: center;flex-direction: row;height: 30px">
+    <button style="border: none;
+      width: 30%;
+      height: 50px;
+      margin: 10px;
+      font-size: 1.3em;"><a href="add-user">Novo Usuário</a></button>
+    <button style="border: none;
+      width: 30%;
+      height: 50px;
+      margin: 10px;
+      font-size: 1.3em;"><a href="/products/products">Produtos</a></button>
+  </div>
+
+</body>
+</html>

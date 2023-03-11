@@ -1,0 +1,30 @@
+form {
+    align-content: space-between;
+    display: flex;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.forms {
+    width: 80%;
+    height: auto;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    margin: auto;
+    box-shadow: black;
+    background-color: lightgray;
+}
+
+button{
+    border: none;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+}

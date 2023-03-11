@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Produtos</title>
+</head>
+<body>
+<h1 style="text-align: center">Lista de Produtos</h1>
+
+<form method="post" th:action="@{./search}" style="text-align: center">
+  Pesquisar
+  <input type="text" name="name">
+  <button type="submit">Pesquisar</button>
+
+</form>
+<br/>
+<table style="display:flex;font-size:1.2em;margin:auto;width:90%;align-self:center;border:black;border:solid;border-color:black;flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;align-content:center;border-radius: 5px;text-align: center">
+  <tr><th>Id</th><th>Nome</th><th>Quantidade</th><th>Preço</th><th>Descrição</th></tr>
+  <tr th:each="product : ${products}">
+    <td th:text="${product.id}"> </td>
+    <td th:text="${product.name}"></td>
+    <td th:text="${product.quantity}"></td>
+    <td th:text="'R$' + ${product.price}"></td>
+    <td th:text="${product.description}"></td>
+    <td>
+      <form th:action="@{./products/delete/{id}(id=${product.id})}" method="post">
+        <button type="submit">Excluir</button>
+      </form>
+    </td>
+  </tr>
+
+</table>
+<div id="button" style="width: 100%;justify-items: center;display: flex;justify-content: center;flex-direction: row;height: 30px">
+  <button style="border: none;
+      width: 30%;
+      height: 50px;
+      margin: 10px;
+      font-size: 1.1em;"><a href="add-product">Novo Produto</a></button>
+  <button style="border: none;
+      width: 30%;
+      height: 50px;
+      margin: 10px;
+      font-size: 1.1em;"><a href="/users/users">Usuários</a></button>
+</div>
+
+</body>
+</html>
